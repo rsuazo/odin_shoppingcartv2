@@ -20,6 +20,7 @@
 //   );
 // }
 
+import { Col, Row } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import { StoreItem } from '../components/StoreItem';
 
@@ -37,9 +38,17 @@ export function Image() {
     <>
       {imageURL && (
         <>
-          {imageURL.map((item) => {
-            return <StoreItem {...item} />;
-          })}
+          <Row md={2} xs={1} lg={3} className="g-3">
+            {imageURL.map((item) => {
+              return (
+                <>
+                  <Col key={item.id}>
+                    <StoreItem {...item} />
+                  </Col>
+                </>
+              );
+            })}
+          </Row>
         </>
       )}
     </>
